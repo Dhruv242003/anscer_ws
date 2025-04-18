@@ -1,0 +1,27 @@
+<launch>
+    <!-- Define arguments with default values -->
+    <arg name="map_name" default="map"/>
+    <arg name="save_filename" default="t1"/>
+    <arg name="save_duration" default="20.0"/>
+
+    <!-- Start required nodes -->
+    <include file="$(find start_anscer)/launch/start_anscer.launch"/>
+    <include file="$(find anscer_navigation)/launch/anscer_navigation.launch">
+        <arg name="map_name" value="$(arg map_name)"/>
+    </include>
+
+    <!-- Trajectory Saver Node -->
+    <node name="trajectory_saver" pkg="trajectory_visualizer" type="trajectory_saver" output="screen"/>
+
+    <!-- Save Trajectory Service Call -->
+    <node name="trajectory_saver_service_call" pkg="roslaunch" type="roslaunch" 
+          args="rosservice call /save_trajectory 'filename: \'$(arg save_filename)\' duration: $(arg save_duration)'" 
+          output="screen"/>
+
+    <!-- Trajectory Reader and Publisher Node -->
+    <node name="trajectory_reader_publisher" pkg="trajectory_visualizer" type="trajectory_reader_publisher" args="$(arg save_filename)" output="screen"/>
+
+    <!-- Open RViz with a unique name -->
+    <node name="$(anon rviz)" pkg="rviz" type="rviz" args="-d $(find trajectory_visualizer)/rviz/trajectory_visualizer.rviz" output="screen"/>
+</launch>
+

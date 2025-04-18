@@ -1,0 +1,8 @@
+prefix=/home/dhruv/anscer_ws/install
+
+Name: anscer_teleop
+Description: Description of anscer_teleop
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: rospy geometry_msgs

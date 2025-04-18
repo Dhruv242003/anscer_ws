@@ -1,0 +1,2 @@
+AR100/anscer_description:AR100/anscer_gazebo:AR100/anscer_navigation:AR100/anscer_slam:AR100/anscer_teleop:AR100/start_anscer:AR100/trajectory_visualizer
+-DCATKIN_DEVEL_PREFIX=/home/dhruv/anscer_ws/devel -DCMAKE_INSTALL_PREFIX=/home/dhruv/anscer_ws/install -G Unix Makefiles

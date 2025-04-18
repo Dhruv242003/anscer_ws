@@ -1,0 +1,8 @@
+prefix=/home/dhruv/anscer_ws/devel
+
+Name: anscer_navigation
+Description: Description of anscer_navigation
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

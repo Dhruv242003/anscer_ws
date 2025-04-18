@@ -1,0 +1,8 @@
+prefix=/home/dhruv/anscer_ws/devel
+
+Name: anscer_description
+Description: Description of anscer_description
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: urdf xacro

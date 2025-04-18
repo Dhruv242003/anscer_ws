@@ -1,0 +1,8 @@
+prefix=/home/dhruv/anscer_ws/install
+
+Name: anscer_slam
+Description: Description of anscer_slam
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: roscpp sensor_msgs

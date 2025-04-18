@@ -1,0 +1,8 @@
+prefix=/home/dhruv/anscer_ws/devel
+
+Name: start_anscer
+Description: Description of start_anscer
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

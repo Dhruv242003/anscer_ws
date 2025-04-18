@@ -1,0 +1,43 @@
+Commands to be exectued to run the assignment
+
+cd ~/asncer_ws
+source devel/setup.bash
+
+catkin_make
+
+terminal 1 : roslaunch start_anscer start_anscer.launch 
+
+terminal 2 : roslaunch anscer_navigation anscer_navigation.launch map_name:=map
+
+(here map name can be changed)
+
+terminal 3 : rosrun trajectory_visualizer trajectory_saver
+
+Now the saver node is running and we can give a goal to the bot and then start saving the trajectory by the following command
+
+terminal 4 : rosservice call /save_trajectory "filename: 't1' duration: 20.0"
+ 
+(here t1 is the file where trajectory will be saved in form of txt file
+ and 20 is duration in seconds till when the recording will go on)
+ 
+terminal 5 : rosrun trajectory_visualizer trajectory_reader_publisher t1
+ 
+ (this will use t1.txt and convert it to marker array and publish it)
+ 
+ Then Open Rviz
+ 	Add Path topic will be automatically selected or select /transformed_trajectory_path
+ 	Add Marker array and select topic /transformed_trajectory_markers
+ 
+ Path will be visible then
+ 
+ 
+ 
+ ReadMe
+ 
+1. Initialize node.
+2. Collect trajectory data (positions, orientations) over time.
+3. Store the trajectory data in a data structure (like an array or list).
+4. Periodically check for save requests.
+5. Save trajectory data to a file when requested (using file name and duration).
+6. When visualizing, read the data from the file.
+7. Display the trajectory in RViz.
